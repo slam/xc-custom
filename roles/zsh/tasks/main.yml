@@ -1,0 +1,8 @@
+---
+
+- name: enable plugins
+  lineinfile: >
+    dest=~/.zshrc
+    regexp="^plugins"
+    line="plugins=(git fasd)"
+
