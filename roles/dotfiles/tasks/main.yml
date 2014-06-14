@@ -1,0 +1,12 @@
+---
+
+- name: Symlink dotfiles
+  file: >
+    state=link
+    src=~/src/github.com/slam/xc-custom/roles/dotfiles/files/{{ item }}
+    dest=~/.{{ item }}
+  with_items:
+    - zshrc
+    - vimrc.local
+    - vimrc.bundles.local
+  tags: dotfiles

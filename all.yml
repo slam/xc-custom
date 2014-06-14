@@ -2,9 +2,7 @@
 - hosts: all
   roles:
 
-  - role: zsh
-    tags: zsh
-  - role: maximum_awesome
+  - role: dotfiles
 
   - role: git
     git_user_name: Sahn Lam
