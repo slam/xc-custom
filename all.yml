@@ -3,6 +3,7 @@
   roles:
 
   - role: zsh
+    tags: zsh
   - role: maximum_awesome
 
   - role: git
