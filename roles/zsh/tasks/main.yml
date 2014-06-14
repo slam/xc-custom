@@ -4,5 +4,31 @@
   lineinfile: >
     dest=~/.zshrc
     regexp="^plugins"
-    line="plugins=(git fasd)"
+    line="plugins=(git fasd vi-mode)"
+
+- name: Disable marking untracked files as dirty
+  lineinfile: >
+    dest=~/.zshrc
+    regexp="DISABLE_UNTRACKED_FILES_DIRTY"
+    line="DISABLE_UNTRACKED_FILES_DIRTY=\"true\""
+
+- name: Add GOPATH
+  lineinfile: >
+    dest=~/.zshrc
+    regexp="^export GOPATH="
+    insertafter="^export PATH="
+    line="export GOPATH=$HOME"
+
+- name: Add GOROOT
+  lineinfile: >
+    dest=~/.zshrc
+    regexp="^export GOROOT="
+    insertafter="^export GOPATH="
+    line="export GOROOT=`go env GOROOT`"
+
+- name: Add GOROOT/bin to PATH
+  lineinfile: >
+    dest=~/.zshrc
+    insertafter="^export GOROOT="
+    line="export PATH=$PATH:$GOROOT/bin"
 
